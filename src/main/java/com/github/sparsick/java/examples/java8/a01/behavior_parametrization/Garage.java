@@ -2,6 +2,7 @@ package com.github.sparsick.java.examples.java8.a01.behavior_parametrization;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class Garage {
 
@@ -47,6 +48,17 @@ public class Garage {
 
     // fourth requirement: flexible filter mechanismn
     public Set<Car> filterCarsPreJava8Style(CarPredicate carFilter) {
+        Set<Car> result = new HashSet<>();
+        for (Car car : cars) {
+            if(carFilter.test(car)){
+                result.add(car);
+            }
+        }
+        return result;
+    }
+
+    // fifth requirement: flexible filter mechanismn with lambda
+    public Set<Car> filterCarsJava8Style(Predicate carFilter) {
         Set<Car> result = new HashSet<>();
         for (Car car : cars) {
             if(carFilter.test(car)){

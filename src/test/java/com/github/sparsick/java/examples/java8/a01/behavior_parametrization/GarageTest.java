@@ -94,6 +94,21 @@ class GarageTest {
         assertThat(yellowCars).hasSize(2).contains(expectedCarOfBob, expectedCarOfLukas);
     }
 
+    @Test
+    void filterCarByCarAnonymePredicateJava8Style() {
+        Car expectedCarOfBob = new Car("Bob, der Baumeister", "yellow", 120);
+        Car expectedCarOfLukas = new Car("Lukas, der Lokomotivführer", "blue", 250);
+
+        Garage garageUnderTest = new Garage();
+        garageUnderTest.addCar(expectedCarOfBob);
+        garageUnderTest.addCar(expectedCarOfLukas);
+        garageUnderTest.addCar(new Car("Der kleine Prinz", "white", 500));
+
+        Set<Car> yellowCars = garageUnderTest.filterCarsPreJava8Style(car -> "blue".equals(car.getColor()) || car.getHorsePower() <= 120);
+
+        assertThat(yellowCars).hasSize(2).contains(expectedCarOfBob, expectedCarOfLukas);
+    }
+
 
 
 
