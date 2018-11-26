@@ -32,4 +32,16 @@ public class Garage {
         }
         return result;
     }
+
+
+    // third requirement: filter cars by any attribute
+    public Set<Car> filterCarsPreJava8Style(String color, int maxHorsePower) {
+        Set<Car> result = new HashSet<>();
+        for (Car car : cars) {
+            if(color.equals(car.getColor()) || car.getHorsePower() <= maxHorsePower){
+                result.add(car);
+            }
+        }
+        return result;
+    }
 }
