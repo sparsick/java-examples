@@ -11,10 +11,22 @@ public class Garage {
         cars.add(car);
     }
 
+    // first requirement: filter by yellow car
     public Set<Car> filterYellowCarsPreJava8Style() {
         Set<Car> result = new HashSet<>();
         for (Car car : cars) {
             if("yellow".equals(car.getColor())){
+                result.add(car);
+            }
+        }
+        return result;
+    }
+
+    // second requirement: filter cars by color
+    public Set<Car> filterCarsByColorPreJava8Style(String color) {
+        Set<Car> result = new HashSet<>();
+        for (Car car : cars) {
+            if(color.equals(car.getColor())){
                 result.add(car);
             }
         }

@@ -20,4 +20,17 @@ class GarageTest {
         assertThat(yellowCars).hasSize(1).contains(expectedYellowCar);
     }
 
+    @Test
+    void filterCarByColorPreJava8Style(){
+        Car expectedYellowCar = new Car("Bob, der Baumeister", "yellow", 120);
+
+        Garage garage = new Garage();
+        garage.addCar(expectedYellowCar);
+        garage.addCar(new Car("Lukas, der Lokomotivführer", "blue", 250));
+
+        Set<Car> yellowCars = garage.filterCarsByColorPreJava8Style("yellow");
+
+        assertThat(yellowCars).hasSize(1).contains(expectedYellowCar);
+    }
+
 }
