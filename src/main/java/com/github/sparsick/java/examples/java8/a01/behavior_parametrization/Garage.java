@@ -44,4 +44,15 @@ public class Garage {
         }
         return result;
     }
+
+    // fourth requirement: flexible filter mechanismn
+    public Set<Car> filterCarsPreJava8Style(CarPredicate carFilter) {
+        Set<Car> result = new HashSet<>();
+        for (Car car : cars) {
+            if(carFilter.test(car)){
+                result.add(car);
+            }
+        }
+        return result;
+    }
 }
