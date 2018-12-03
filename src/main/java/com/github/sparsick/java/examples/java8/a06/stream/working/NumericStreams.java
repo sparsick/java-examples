@@ -1,18 +1,17 @@
 package com.github.sparsick.java.examples.java8.a06.stream.working;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Stream;
 
-public class NumericStreams {
+class NumericStreams {
 
-    private List<Car> cars = Arrays.asList(new Car("yellow", 80),
+    private Stream<Car> cars = Stream.of(new Car("yellow", 80),
             new Car("blue", 100),
             new Car("green", 120),
             new Car("red", 200));
 
 
-    int mappingToNumericStream(){
-        return cars.stream()                          // Stream<Car>
+    int mappingToNumericStream() {
+        return cars                                   // Stream<Car>
                 .mapToInt(car -> car.getHorsePower()) // IntStream
                 .sum();
     }

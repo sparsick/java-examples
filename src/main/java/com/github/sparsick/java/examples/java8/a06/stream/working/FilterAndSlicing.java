@@ -7,11 +7,12 @@ import static java.util.stream.Collectors.toList;
 
 class FilterAndSlicing {
 
+    private final List<Car> cars = Arrays.asList(new Car("yellow", 80),
+            new Car("blue", 100),
+            new Car("green", 120),
+            new Car("red", 200));
+
     List<Car> filterWithPredicate() {
-        List<Car> cars = Arrays.asList(new Car("yellow", 80),
-                new Car("blue", 100),
-                new Car("green", 120),
-                new Car("red", 200));
         return cars.stream().filter(car -> car.getHorsePower() < 150).collect(toList());
     }
 
@@ -24,20 +25,12 @@ class FilterAndSlicing {
     }
 
     List<Car> truncating(){
-        List<Car> cars = Arrays.asList(new Car("yellow", 80),
-                new Car("blue", 100),
-                new Car("green", 120),
-                new Car("red", 200));
         return cars.stream().filter(car -> car.getHorsePower() < 150)
                             .limit(2)
                             .collect(toList());
     }
 
     List<Car> skipping(){
-        List<Car> cars = Arrays.asList(new Car("yellow", 80),
-                new Car("blue", 100),
-                new Car("green", 120),
-                new Car("red", 200));
         return cars.stream().filter(car -> car.getHorsePower() < 150)
                 .skip(2)
                 .collect(toList());

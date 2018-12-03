@@ -1,22 +1,21 @@
 package com.github.sparsick.java.examples.java8.a06.stream.working;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Stream;
 
-public class Reducing {
+class Reducing {
 
-    private List<Car> cars = Arrays.asList(new Car("yellow", 80),
+    private Stream<Car> cars = Stream.of(new Car("yellow", 80),
             new Car("blue", 100),
             new Car("green", 120),
             new Car("red", 200));
 
 
-    int reduce(){
-        return cars.stream().map(car -> car.getHorsePower())
-                            .reduce(0, (horsepower, sum) -> sum + horsepower);
+    int reduce() {
+        return cars.map(car -> car.getHorsePower())
+                .reduce(0, (horsepower, sum) -> sum + horsepower);
     }
 
     long count() {
-        return cars.stream().filter(car -> car.getHorsePower() < 150).count();
+        return cars.filter(car -> car.getHorsePower() < 150).count();
     }
 }
