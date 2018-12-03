@@ -2,9 +2,7 @@ package com.github.sparsick.java.examples.java8.a06.stream.working;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.*;
 import static java.util.stream.Collectors.toList;
 
 class FilterAndSlicing {
