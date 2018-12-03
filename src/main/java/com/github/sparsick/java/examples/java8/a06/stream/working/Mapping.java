@@ -2,7 +2,6 @@ package com.github.sparsick.java.examples.java8.a06.stream.working;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -18,8 +17,8 @@ class Mapping {
                 .collect(toList());
     }
 
-    List<String> flatMap(){
-        String[] wordArray = {"Nice", "car" };
+    List<String> flatMap() {
+        String[] wordArray = {"Nice", "car"};
 
         return Arrays.stream(wordArray).map(word -> word.split(""))
                 .flatMap(Arrays::stream)
