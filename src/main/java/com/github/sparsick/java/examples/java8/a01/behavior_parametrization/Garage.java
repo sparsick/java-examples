@@ -58,7 +58,7 @@ public class Garage {
     }
 
     // fifth requirement: flexible filter mechanismn with lambda
-    public Set<Car> filterCarsJava8Style(Predicate carFilter) {
+    public Set<Car> filterCarsJava8Style(Predicate<Car> carFilter) {
         Set<Car> result = new HashSet<>();
         for (Car car : cars) {
             if(carFilter.test(car)){
